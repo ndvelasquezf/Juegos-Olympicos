@@ -1,0 +1,83 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package juegos_olimpicos;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Rodrigo Velasquez y Nicolas David Velasquez Fuentes
+ */
+public class Delegacion {
+
+	private String pais;
+	private int medallasoro;
+	private int medallasplata;
+	private int medallasbronce;
+	private ArrayList<Grupo> grupos;
+
+	public void anadirGrupo(Grupo grupo){
+		this.grupos.add(grupo);
+	}
+
+	public void buscarDeporte(String deporteBuscar){
+		for (Grupo grupo : grupos) {
+			if (grupo.getDeporte().equals(deporteBuscar)) {
+				System.out.println("Pais: " + this.pais +  " [ " + grupo.toString() + " ] ");
+			}else{
+				System.out.println("Escribio mal el nombre del deporte o deporte no encontrado");
+			}
+		}
+	}
+	
+	public Delegacion(String pais, int medallasoro, int medallasplata, int medallasbronce) {
+		this.pais = pais;
+		this.medallasoro = medallasoro;
+		this.medallasplata = medallasplata;
+		this.medallasbronce = medallasbronce;
+		this.grupos = new ArrayList<Grupo>();
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public int getMedallasoro() {
+		return medallasoro;
+	}
+
+	public void setMedallasoro(int medallasoro) {
+		this.medallasoro = medallasoro;
+	}
+
+	public int getMedallasplata() {
+		return medallasplata;
+	}
+
+	public void setMedallasplata(int medallasplata) {
+		this.medallasplata = medallasplata;
+	}
+
+	public int getMedallasbronce() {
+		return medallasbronce;
+	}
+
+	public void setMedallasbronce(int medallasbronce) {
+		this.medallasbronce = medallasbronce;
+	}
+	@Override
+	public String toString() {
+		String string = "";
+		for (Grupo grupo : grupos) {
+			string = string + grupo.toString();
+		}
+		return "Nombre Pais: " + this.pais + "[" + string + "] ";
+	}
+}
